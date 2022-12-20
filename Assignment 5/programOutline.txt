@@ -1,0 +1,13 @@
+welcome message
+ask for user defined array size
+fill array with random numbers
+    some numbers may be NANS, so check for NANS, discard if NANS, get new number
+read clock
+    early tics
+call sort
+read clock
+    late tics
+calculate runtime
+    late tics - early tics / frequency
+output runtime in seconds
+exit

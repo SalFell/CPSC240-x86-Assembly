@@ -1,0 +1,29 @@
+GDB commands used with Assignment 2
+
+b main    //start of main
+b triangle    //calling triangle
+b triangle.asm:77   //start of register backup
+b triangle.asm:94   //end of register backup
+b triangle.asm:143    //start of number input_prompt
+b triangle.asm:156    //first scanf
+b triangle.asm:168    //end of number input_prompt
+b triangle.asm:228    //ret
+b pythagoras.c:62   //returned to pythagoras.c
+s
+info line pythagoras.c:56   //shows address(s) in hex of welcome message after stepping through the message.
+p/d num   //prints value of num in decimal before calling triangle.
+p/x $rdx    //prints value of rdx in hex before calling triangle
+x/1xg $rsp    //shows address of rsp (top of the stack) quadword in hex
+n   //step into triangle.asm
+n   //step towards number input prompt
+p/x (char*)&input_prompt    //show address of input_prompt message string in hex. On heap since above 0x400000
+n   //step to right before scanf for first number
+p/x $xmm15    //output value of xmm15 in hex. shows various forms of value, we are interested in v2_double[0]
+              // p/x $xmm15.v2_double[0]    should be 0x0 before scanf
+n   //step to enter two numbers
+3.0 4.0   //numbers inputted
+p/x $xmm15.v2_double[0]   //now should be 0x3 (3.0 that we entered)
+c   //continue to next breakpoint. ret statement
+p/x $xmm0.v2_double[0]    //show value in hex of xmm0 that will be returned to caller. In this case, 0x5 (5.0, the hypotenuse)
+c   //continue to next breakpoint. back inside caller (pythagoras.c)
+p/d $xmm0.v2_double[0]    //show value in decimal of xmm0. In this case, is 5 (same as before)

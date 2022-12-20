@@ -1,0 +1,6 @@
+This text file is being sent with the submission for Assignment 4 by Salvador Felipe on Dec. 07, 2022.
+The initial submission did not include the file 'getCPUFreq.asm' but this one does. I sincerely
+apologize for the inconvenience and hope you will regrade this assignment. I understand this may affect
+my grade as it may be considered a late submission.
+Thank you for your time.
+-Salvador Felipe
